@@ -18,6 +18,12 @@
 </head>
 
 <body>
+    <header>
+        <div class="header-imgs">
+            <img class="sol" src="images/icon.png" alt="">
+            <img class="lua close" src="images/icon (1).png" alt="" >
+        </div>
+    </header>
     <main>
         <div class="container">
             <div class="timer">
@@ -37,10 +43,13 @@
     
             <div class="cards-wrapper">
                 <div class="cards">
-                    <button class="tree"><img class="configImg-cards" src="images/cardArvore.png" alt="desenho de uma arvore dentro de um card"></button>
-                    <button class="chuva rain"><img class="configImg-cards" src="images/cardChuva.png" alt="desenho clima chuvoso dentro de um card"></button>
-                    <button class="house"><img class="configImg-cards" src="images/cardCasa.png" alt="desenho de uma casa dentro de um card"></button>
-                    <button class="fire"><img class="configImg-cards" src="images/cardFogo.png" alt="desenho de um fogo dentro de um card"></button>
+                    <button class="tree"><img class="configImg-cards" src="images/cardArvore.png" alt="desenho de uma arvore dentro de um card"><input class="inputTree" type="range" min="0" max="100" value="50" name="" id=""></button>
+
+                    <button class="chuva rain" style="background: #02799D;"><img class="configImg-cards" src="images/cardChuva.png" alt="desenho clima chuvoso dentro de um card"><input class="inputRain" type="range" min="0" max="100" value="50"name="" id=""></button>
+
+                    <button class="house"><img class="configImg-cards" src="images/cardCasa.png" alt="desenho de uma casa dentro de um card"><input class="inputHouse" type="range" min="0" max="100" value="50"name="" id=""></button>
+                    
+                    <button class="fire"><img class="configImg-cards" src="images/cardFogo.png" alt="desenho de um fogo dentro de um card"><input class="inputFire" type="range" min="0" max="100" value="50"name="" id=""></button>
                 </div>
             </div>
         </div>

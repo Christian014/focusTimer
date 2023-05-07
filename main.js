@@ -1,8 +1,10 @@
 let minutesDisplay = document.querySelector(".minutes")
 let secondsDisplay = document.querySelector(".seconds")
+
 let buttonPlay = document.querySelector(".play")
 let buttonIncrease = document.querySelector(".increase")
 let buttonToDecrease = document.querySelector(".toDecrease")
+let buttonStop = document.querySelector(".stop")
 
 let backgroundTree = document.querySelector(".tree")
 let backgroundRain = document.querySelector(".rain")
@@ -14,9 +16,47 @@ let musicRain = new Audio('./music/Chuva.wav')
 let musicHouse = new Audio('./music/Cafeteria.wav')
 let musicFire = new Audio('./music/Lareira.wav')
 
+inputForest = document.querySelector(".inputTree")
+inputRain = document.querySelector(".inputRain")
+inputHouse = document.querySelector(".inputHouse")
+inputFire = document.querySelector(".inputFire")
+
+inputForest.addEventListener('input', ()=>{
+    volumeMusics(musicForest, inputForest)
+})
+inputRain.addEventListener('input', ()=>{
+    volumeMusics(musicRain, inputRain)
+})
+inputHouse.addEventListener('input', ()=>{
+    volumeMusics(musicHouse, inputHouse)
+})
+inputFire.addEventListener('input', ()=>{
+    volumeMusics(musicFire, inputFire)
+})
+
 let minutes = minutesDisplay.textContent
 let newMinutes
 let interval
+let bgBody = document.querySelector("body")
+
+let sol = document.querySelector(".sol")
+sol.addEventListener('click', () => {
+    sol.classList.add("close")
+    lua.classList.remove("close")
+    bgBody.style.background = "black"
+    changeColorFonts(100)
+   document.querySelector("h1").style.color = "white"
+    
+})
+
+let lua = document.querySelector(".lua")
+lua.addEventListener('click', () => {
+    sol.classList.remove("close")
+    lua.classList.add("close")
+    bgBody.style.background = "white"
+    changeColorFonts(0)
+    document.querySelector("h1").style.color = "black"
+})
 
 let icons = document.querySelectorAll(".ph")
 
@@ -34,6 +74,12 @@ buttonPlay.addEventListener('click', function(){
     validTime()
 })
 
+buttonStop.addEventListener('click', function(){
+    minutesDisplay.textContent = "25"
+    secondsDisplay.textContent = "00"
+    clearInterval(interval)
+    
+})
 buttonIncrease.addEventListener('click', function(){
     incrementMinutes()
 })
@@ -108,8 +154,9 @@ function iconsTree(){
     document.querySelector(".spans-timer").style.color = "white"
     changeColorFonts(100)
     changeBackground("https://i.gifer.com/Ort.gif")
-    
+
     musicOn(musicForest)
+    let inputTree = document.querySelector(".inputTree")
 }
 
 function iconsFire(){
@@ -159,4 +206,8 @@ function musicOn(music){
     }
     currentMusic = music
     musicDisplay(currentMusic)
+}
+
+function volumeMusics(music, input){
+    music.volume = input.value / 100;
 }
