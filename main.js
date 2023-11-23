@@ -142,7 +142,7 @@ function play(){
 
 function validTime(){
 
-    if (secondsDisplay.textContent == 00 && minutesDisplay.textContent == 00){
+    if (secondsDisplay.textContent == "00" && minutesDisplay.textContent == "00"){
         alert("Please enter a valid")
         clearInterval(interval)
     }
